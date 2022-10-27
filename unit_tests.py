@@ -27,6 +27,8 @@ class TestBankAccount(unittest.TestCase):
         self.a2.withdraw(1000)
         self.assertEqual(self.a2.balance, 500)
         #TODO: Add test for insufficient balance case
+        with self.assertRaises(Exception) as context:
+            self.a2.withdraw(1000)
 
     def test_EqualAccounts(self):
         self.assertTrue(self.a1.balance > 0)
